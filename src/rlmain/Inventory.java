@@ -1,15 +1,14 @@
 package rlmain;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 import items.Ammo;
 import items.Ammo.ammoType;
 import items.GoldCoins;
 import items.Item;
 import items.Item.itemType;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
 import screens.PlayScreen;
 
 public class Inventory implements Serializable{
@@ -135,9 +134,11 @@ public class Inventory implements Serializable{
 	
 	public ArrayList<Item> getReadableItems(){
 		ArrayList<Item> toReturn = new ArrayList<Item>();
-		for(Item i: this.items)
-			if(i.getType() == Item.itemType.SCROLL) 
+		for(Item i: this.items) {
+			if (i.getType() == Item.itemType.SCROLL) {
 				toReturn.add(i);
+			}
+		}
 		return toReturn;
 	}
 	
